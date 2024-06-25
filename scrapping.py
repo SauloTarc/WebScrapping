@@ -18,13 +18,20 @@ def main():
         
         for label in labels:
             categoria = label.get_text(strip=True)
-            if categoria != 'Categorias' and categoria != 'Identidades/elenco:':
-                nomes = label.find_next_sibling('br').find_all_next(text=True)
-                nomes = '\n'.join([item.strip() for item in nomes if item.strip()])
-                data.append({'Categoria': categoria, 'Nomes': nomes})
+            next_element = label.find_next_sibling()
+
+            if next_element.name == 'br':
+                informacoes = next_element.find_next_sibling(string=True)
+                if informacoes:
+                    informacoes = informacoes.strip()
+                else:
+                    informacoes = ""
+            else:
+                informacoes = ""
+
+            data.append({'Categoria': categoria, 'Nomes': informacoes})
         
         save_to_csv(data, csv_filename)
-                
     else:
         print('Não foi possível obter o conteúdo HTML.')
 

@@ -207,10 +207,10 @@
             <b class="label">Material original</b>
             <br/>35mm, COR, 100min, 2.730m, 24q, Dolby Cyan SR-SRD, 1:1'66<br/>
             <br/><b class="label">Data e local de produção</b><br/>
-            <b>Ano:</b> 2007<br/>
-            <b>País: </b>BR-IT<br/>
-            <b>Cidade:</b> Curitiba<br/>
-            <br/><br/>
+                <b>Ano:</b> 2007<br/>
+                <b>País: </b>BR-IT<br/>
+                <b>Cidade:</b> Curitiba<br/>
+                <br/><br/>
             <b class="label">Certificados</b><blockquote>Salic 070420Certificado de Produto Brasileiro: B0700777200000 de 08.10.2007.</blockquote>
             <b class="label">Circuito exibidor</b><blockquote>Exibido em São Paulo a 15.10.2022, na sala Grande Otelo, Cinemateca Brasileira.<br/></blockquote>
             <b class="label">Sinopse</b><blockquote>"Na vida há os que devoram e os que são devorados. Raimundo Nonato, nosso protagonista, descobre um caminho à parte: ele cozinha. E é nas cozinhas de um boteco, de um restaurante italiano e de uma prisão - o que ele fez para acabar ali? - que Nonato vive sua intrigante história. E também aprende as regras da cadeia alimentar da sociedade. Regras que ele usa a seu favor, porque mesmo os cozinheiros têm direito a comer sua parte - e eles sabem, melhor do que ninguém, qual é a parte boa." (Extraído de Programadora Brasil/6)<br/></blockquote>
