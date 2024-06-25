@@ -12,16 +12,20 @@ def main():
         # Preparar para salvar em CSV
         csv_filename = 'informacoes_filme.csv'
         data = []
+        categoria = []
+        names = []
         
         # Encontrar todas as categorias disponíveis
         labels = soup.find_all('b', class_='label')
         
         for label in labels:
-            categoria = label.get_text(strip=True)
-            if categoria != 'Categorias' and categoria != 'Identidades/elenco:':
-                nomes = label.find_next_sibling('br').find_all_next(text=True)
-                nomes = '\n'.join([item.strip() for item in nomes if item.strip()])
-                data.append({'Categoria': categoria, 'Nomes': nomes})
+            categoria.append(label.get_text(strip=True))
+
+        for label in labels:
+            nomes = label.find_next_sibling('br').find_all_next(string=True)
+            nomes = '\n'.join([item.strip() for item in nomes if item.strip()])
+            names.append(nomes)
+        data.append({'Categoria': categoria, 'Nomes': names})
         
         save_to_csv(data, csv_filename)
                 
