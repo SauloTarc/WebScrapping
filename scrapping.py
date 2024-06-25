@@ -1,4 +1,3 @@
-from bs4 import BeautifulSoup
 from functions import save_to_csv, parse_informations, fetch_html
 
 def main():
@@ -9,24 +8,32 @@ def main():
     if html_content:
         soup = parse_informations(html_content)
         
-        # Preparar para salvar em CSV
         csv_filename = 'informacoes_filme.csv'
         data = []
-        categoria = []
-        names = []
         
-        # Encontrar todas as categorias disponíveis
         labels = soup.find_all('b', class_='label')
-        
-        for label in labels:
-            categoria.append(label.get_text(strip=True))
 
         for label in labels:
-            nomes = label.find_next_sibling('br').find_all_next(string=True)
-            nomes = '\n'.join([item.strip() for item in nomes if item.strip()])
-            names.append(nomes)
-        data.append({'Categoria': categoria, 'Nomes': names})
-        
+            categoria = label.get_text(strip=True)
+            
+            texts = []
+            
+            next_element = label.find_next_sibling()
+
+            while next_element and (next_element.name != 'b' or 'label' not in next_element.get('class', [])):
+                if next_element.name == 'br':
+                    next_element = next_element.find_next_sibling()
+                    continue
+                
+                text = next_element.get_text(strip=True)
+                if text:
+                    texts.append(text)
+                
+                next_element = next_element.find_next_sibling()
+
+            texto_completo = ' '.join(texts)
+            data.append({'Categoria': categoria, 'Nomes': texto_completo.strip()})
+
         save_to_csv(data, csv_filename)
                 
     else:
